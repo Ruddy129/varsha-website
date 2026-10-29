@@ -518,24 +518,9 @@
         const classDialog = document.querySelector('#class-dialog');
         const classForm = document.querySelector('#class-form');
         const statusLabels = { present: 'Present', late: 'Late', absent: 'Absent', excused: 'Excused' };
-        const seededClasses = ['10-A', '10-B', '9-A'];
-        const seededStudents = [
-          { id: 'STU-101', name: 'Amelia Johnson', className: '10-A', checkIn: '08:12 AM', status: 'present' },
-          { id: 'STU-102', name: 'Ethan Williams', className: '10-A', checkIn: '08:18 AM', status: 'present' },
-          { id: 'STU-103', name: 'Olivia Brown', className: '10-A', checkIn: '08:31 AM', status: 'late' },
-          { id: 'STU-104', name: 'Noah Davis', className: '10-A', checkIn: '—', status: 'absent' },
-          { id: 'STU-105', name: 'Sophia Miller', className: '10-A', checkIn: '08:09 AM', status: 'present' },
-          { id: 'STU-106', name: 'Liam Wilson', className: '10-B', checkIn: '08:15 AM', status: 'present' },
-          { id: 'STU-107', name: 'Isabella Moore', className: '10-B', checkIn: '—', status: 'excused' },
-          { id: 'STU-108', name: 'Mason Taylor', className: '9-A', checkIn: '08:23 AM', status: 'late' }
-        ];
-        const icons = {
-          edit: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg>'
-        };
-
         const supabase = window.supabase.createClient('https://ahkizjnqlgtljxjyivqm.supabase.co', 'sb_publishable_rQyrz5EJ7sOW_DBOe3fW2g_DNFx0sXm');
 
-        let classes = loadClasses();
+        let classes = [];
         let students = [];
         let activeStatus = 'all';
         let currentPage = 1;
@@ -564,33 +549,7 @@
         }
 
         function loadClasses() {
-          try {
-            const saved = localStorage.getItem(`${STORAGE_KEY}-classes`);
-            if (!saved) return [...seededClasses];
-            const parsed = JSON.parse(saved);
-            if (!Array.isArray(parsed) || !parsed.every((className) => typeof className === 'string' && /^[1-9]\d?-[A-Za-z0-9-]{1,8}$/.test(className)) || new Set(parsed).size !== parsed.length) {
-              throw new Error('Stored class data has an unexpected format.');
-            }
-            return parsed;
-          } catch (error) {
-            console.error('Unable to load saved classes.', error);
-            return [...seededClasses];
-          }
-        }
-
-        function loadStudentsFromLocal() {
-          try {
-            const saved = localStorage.getItem(STORAGE_KEY);
-            if (!saved) return seededStudents.map((student) => ({ ...student }));
-            const parsed = JSON.parse(saved);
-            if (!Array.isArray(parsed) || !parsed.every((student) => student && typeof student.id === 'string' && typeof student.name === 'string' && classes.includes(student.className) && ['present', 'late', 'absent', 'excused'].includes(student.status) && typeof student.checkIn === 'string')) {
-              throw new Error('Stored attendance data has an unexpected format.');
-            }
-            return parsed;
-          } catch (error) {
-            console.error('Unable to load saved attendance.', error);
-            return seededStudents.map((student) => ({ ...student }));
-          }
+          return [];
         }
 
         function formatDate(date) {
@@ -612,7 +571,7 @@
           const selectedClass = classFilter.value;
           classFilter.innerHTML = `<option value="all">All classes</option>${options}`;
           classFilter.value = classes.includes(selectedClass) ? selectedClass : 'all';
-          studentForm.elements.className.innerHTML = options;
+          studentForm.elements.className.innerHTML = options || '<option value="">Create a class first</option>';
           for (const selector of ['#directory-class', '#report-class']) {
             const select = document.querySelector(selector);
             const value = select.value;
@@ -824,29 +783,17 @@
           return String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
         }
 
-        function saveStudents() {
-          try {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(students));
-            localStorage.setItem(`${STORAGE_KEY}-classes`, JSON.stringify(classes));
-            isDirty = false;
-            saveState.classList.remove('unsaved');
-            saveState.querySelector('span').textContent = 'All changes saved';
-            showToast('Attendance saved on this device.');
-          } catch (error) {
-            console.error('Unable to save attendance.', error);
-            showToast('Could not save. Check your browser storage settings.');
+        async function syncClassRooms() {
+          if (!classes.length) return;
+          const rowsToUpsert = classes.map((name) => ({ name }));
+          const { error } = await supabase.from('classrooms').upsert(rowsToUpsert, { onConflict: 'name' });
+          if (error) {
+            console.error('Supabase class sync error', error);
+            throw error;
           }
         }
 
         async function syncStudentRecords() {
-          if (!supabase) return;
-
-          const { data: existingRows, error: fetchError } = await supabase.from('students').select('*');
-          if (fetchError) {
-            console.error('Supabase fetch error', fetchError);
-            return;
-          }
-
           const rowsToUpsert = students.map((student) => ({
             id: student.id,
             name: student.name,
@@ -855,34 +802,30 @@
             status: student.status
           }));
 
-          if (rowsToUpsert.length) {
-            const { error: upsertError } = await supabase.from('students').upsert(rowsToUpsert, { onConflict: 'id' });
-            if (upsertError) {
-              console.error('Supabase upsert error', upsertError);
-            }
-          }
+          if (!rowsToUpsert.length) return;
 
-          if (existingRows && existingRows.length) {
-            const localMap = new Map(students.map((student) => [student.id, student]));
-            for (const row of existingRows) {
-              if (!localMap.has(row.id)) {
-                students.push({
-                  id: row.id,
-                  name: row.name,
-                  className: row.class_name,
-                  checkIn: row.check_in || '—',
-                  status: row.status || 'absent'
-                });
-              }
-            }
+          const { error } = await supabase.from('students').upsert(rowsToUpsert, { onConflict: 'id' });
+          if (error) {
+            console.error('Supabase upsert error', error);
+            throw error;
           }
+        }
+
+        async function loadClassesFromSupabase() {
+          const { data, error } = await supabase.from('classrooms').select('*');
+          if (error) {
+            console.error('Supabase class load error', error);
+            classes = [];
+            return;
+          }
+          classes = (data || []).map((row) => row.name).filter(Boolean);
         }
 
         async function loadStudentsFromSupabase() {
           const { data, error } = await supabase.from('students').select('*');
           if (error) {
             console.error('Supabase load error', error);
-            students = loadStudentsFromLocal();
+            students = [];
             return;
           }
 
@@ -893,9 +836,20 @@
             checkIn: row.check_in || '—',
             status: row.status || 'absent'
           }));
+          classes = Array.from(new Set([...classes, ...students.map((student) => student.className)]));
+        }
 
-          if (!students.length) {
-            students = loadStudentsFromLocal();
+        async function saveStudents() {
+          try {
+            await syncStudentRecords();
+            await syncClassRooms();
+            isDirty = false;
+            saveState.classList.remove('unsaved');
+            saveState.querySelector('span').textContent = 'All changes saved';
+            showToast('Attendance saved to Supabase.');
+          } catch (error) {
+            console.error('Unable to save attendance to Supabase.', error);
+            showToast('Could not save. Check Supabase table access and RLS.');
           }
         }
 
@@ -939,8 +893,8 @@
 
         function loginHandler(event) {
           event.preventDefault();
-          const email = loginForm.email.value.trim().toLowerCase();
-          const password = loginForm.password.value;
+          const email = loginForm.querySelector('#login-email').value.trim().toLowerCase();
+          const password = loginForm.querySelector('#login-password').value;
           if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
             localStorage.setItem(AUTH_KEY, JSON.stringify({ email }));
             setSignedIn(email);
@@ -1005,21 +959,6 @@
           }
         });
 
-        rows.addEventListener('change', (event) => {
-          const select = event.target.closest('.status-select');
-          if (!select) return;
-          const student = students.find((item) => item.id === select.dataset.studentId);
-          if (!student) return;
-          student.status = select.value;
-          if (student.status === 'present' && student.checkIn === '—') {
-            student.checkIn = new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit' }).format(new Date());
-          } else if (student.status === 'absent' || student.status === 'excused') {
-            student.checkIn = '—';
-          }
-          markDirty();
-          render();
-        });
-
         rows.addEventListener('click', (event) => {
           const button = event.target.closest('[data-edit-id]');
           if (!button) return;
@@ -1037,14 +976,11 @@
         document.querySelector('#report-status').addEventListener('change', renderOtherViews);
         document.querySelector('#report-export-button').addEventListener('click', downloadReportCsv);
         document.querySelector('#export-button').addEventListener('click', downloadCsv);
-        document.querySelector('#save-button').addEventListener('click', async () => {
-          saveStudents();
-          await syncStudentRecords();
-        });
+        document.querySelector('#save-button').addEventListener('click', saveStudents);
         document.querySelector('#logout-button').addEventListener('click', logout);
 
         document.querySelectorAll('#add-student-button, [data-open-student]').forEach((button) => button.addEventListener('click', () => {
-          studentForm.elements.className.value = classFilter.value === 'all' ? '10-A' : classFilter.value;
+          studentForm.elements.className.value = classFilter.value === 'all' ? (classes[0] || '') : classFilter.value;
           dialog.showModal();
           studentForm.elements.name.focus();
         }));
@@ -1059,12 +995,16 @@
         dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
         classDialog.addEventListener('click', (event) => { if (event.target === classDialog) classDialog.close(); });
 
-        studentForm.addEventListener('submit', (event) => {
+        studentForm.addEventListener('submit', async (event) => {
           event.preventDefault();
           const formData = new FormData(studentForm);
           const name = String(formData.get('name')).trim();
           const id = String(formData.get('studentId')).trim();
           const className = String(formData.get('className'));
+          if (!className) {
+            showToast('Create a class before adding students.');
+            return;
+          }
           if (students.some((student) => student.id.toLocaleLowerCase() === id.toLocaleLowerCase())) {
             studentForm.elements.studentId.setCustomValidity('This student ID is already in the register.');
             studentForm.elements.studentId.reportValidity();
@@ -1072,14 +1012,14 @@
             return;
           }
           students.push({ id, name, className, checkIn: '—', status: 'absent' });
-          markDirty();
+          await saveStudents();
           dialog.close();
           studentForm.reset();
           render();
           showToast(`Added ${name} to ${classLabel(className)}.`);
         });
 
-        classForm.addEventListener('submit', (event) => {
+        classForm.addEventListener('submit', async (event) => {
           event.preventDefault();
           const formData = new FormData(classForm);
           const grade = String(formData.get('grade')).trim();
@@ -1092,6 +1032,7 @@
             return;
           }
           classes.push(className);
+          await syncClassRooms();
           classDialog.close();
           classForm.reset();
           render();
@@ -1101,6 +1042,8 @@
         loginForm.addEventListener('submit', loginHandler);
 
         (async function init() {
+          classes = loadClasses();
+          await loadClassesFromSupabase();
           await loadStudentsFromSupabase();
           classes = Array.from(new Set([...classes, ...students.map((student) => student.className)]));
           updateClassOptions();
