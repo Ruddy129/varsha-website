@@ -53,19 +53,19 @@
     .teacher-copy strong { font-size: 12px; }
     .teacher-copy span { color: var(--muted); font-size: 10px; }
     .main { min-width: 0; }
-    .topbar { position: sticky; z-index: 2; top: 0; display: flex; height: 67px; align-items: center; justify-content: space-between; padding: 0 clamp(22px, 4vw, 52px); border-bottom: 1px solid var(--line); background: #ffffffed; backdrop-filter: blur(12px); }
+    .topbar { position: sticky; z-index: 2; top: 0; display: flex; height: 67px; align-items: center; justify-content: space-between; padding: 0 clamp(22px, 4vw, 52px); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.92); backdrop-filter: blur(10px); }
     .breadcrumbs { color: #8b95a7; font-size: 12px; }
     .breadcrumbs strong { color: #515e75; font-weight: 650; }
     .top-actions { display: flex; align-items: center; gap: 18px; }
     .today-label { color: #737f94; font-size: 12px; }
-    .top-avatar { display: grid; width: 33px; height: 33px; place-items: center; border: 2px solid #fff; border-radius: 50%; color: #5b50bd; background: #f0edff; box-shadow: 0 0 0 1px var(--line); font-size: 11px; font-weight: 750; }
+    .top-avatar { display: grid; width: 33px; height: 33px; place-items: center; border: 2px solid #fff; border-radius: 50%; color: #5b50bd; background: #f0edff; box-shadow: 0 0 0 1px var(--line); font-size: 10px; font-weight: 750; }
     .content { width: min(100%, 1440px); margin: 0 auto; padding: 37px clamp(22px, 4vw, 52px) 42px; }
     .heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 22px; margin-bottom: 25px; }
     .eyebrow { margin: 0 0 8px; color: #8290a7; font-size: 10px; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
     h1 { margin: 0; font-size: clamp(26px, 3vw, 33px); font-weight: 730; letter-spacing: -.055em; line-height: 1.15; }
     .subtitle { margin: 9px 0 0; color: var(--muted); font-size: 13px; }
     .heading-actions { display: flex; flex: none; gap: 9px; }
-    .button { display: inline-flex; min-height: 39px; align-items: center; justify-content: center; gap: 8px; padding: 0 13px; border: 1px solid transparent; border-radius: 9px; font-size: 12px; font-weight: 680; transition: background .15s, border-color .15s, transform .15s; }
+    .button { display: inline-flex; min-height: 39px; align-items: center; justify-content: center; gap: 8px; padding: 0 13px; border: 1px solid transparent; border-radius: 9px; font-size: 12px; font-weight: 700; letter-spacing: -.01em; transition: transform .15s ease, background-color .15s ease, border-color .15s ease; }
     .button:hover { transform: translateY(-1px); }
     .button svg { width: 15px; height: 15px; }
     .button-primary { color: #fff; background: var(--blue); box-shadow: 0 4px 10px #4263eb28; }
@@ -131,7 +131,7 @@
     .row-action { display: grid; width: 28px; height: 28px; place-items: center; border: 0; border-radius: 7px; color: #9aa4b3; background: transparent; }
     .row-action:hover { color: var(--blue); background: var(--blue-pale); }
     .row-action svg { width: 15px; height: 15px; }
-    .table-footer { display: flex; min-height: 53px; align-items: center; justify-content: space-between; gap: 12px; padding: 0 20px; border-top: 1px solid var(--line); color: #929daf; font-size: 10px; }
+    .table-footer { display: flex; min-height: 53px; align-items: center; justify-content: space-between; gap: 12px; padding: 0 20px; border-top: 1px solid var(--line); color: #929daf; font-size: 11px; }
     .pagination { display: flex; align-items: center; gap: 8px; }
     .pagination .button { min-height: 30px; padding: 0 9px; font-size: 10px; }
     .pagination .button:disabled { cursor: not-allowed; opacity: .48; transform: none; }
@@ -167,7 +167,7 @@
     .secondary-button:hover { background: #f7f8fb; }
     .inline-empty { padding: 26px 18px; color: var(--muted); text-align: center; font-size: 12px; }
     .site-footer { padding: 0 clamp(22px,4vw,52px) 25px; color: #929daf; font-size: 10px; }
-    .toast { position: fixed; right: 24px; bottom: 23px; z-index: 5; padding: 12px 16px; border: 1px solid #d5ecde; border-radius: 10px; color: #286c4d; background: #f1fbf4; box-shadow: 0 10px 30px #17243b17; font-size: 12px; opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity .2s, transform .2s; }
+    .toast { position: fixed; right: 24px; bottom: 23px; z-index: 5; padding: 12px 16px; border: 1px solid #d5ecde; border-radius: 10px; color: #286c4d; background: #f1fbf4; box-shadow: 0 10px 30px rgba(44,75,98,.12); opacity: 0; transform: translateY(8px); transition: opacity .18s ease, transform .18s ease; }
     .toast.show { opacity: 1; transform: translateY(0); }
     dialog { width: min(420px, calc(100% - 32px)); padding: 0; border: 1px solid var(--line); border-radius: 15px; color: var(--ink); box-shadow: 0 25px 80px #17243b30; }
     dialog::backdrop { background: #17243b55; backdrop-filter: blur(3px); }
@@ -180,8 +180,8 @@
     .visually-hidden { position: absolute; left: 0; overflow: hidden; width: 1px; height: 1px; clip: rect(0,0,0,0); white-space: nowrap; clip-path: inset(50%); }
     #login-screen[hidden],#app-shell[hidden] { display: none; }
     .login-screen { display: grid; min-height: 100vh; place-items: center; padding: 32px; background: radial-gradient(ellipse at 18% 8%, #e8edff 0, transparent 38%), var(--canvas); }
-    .login-layout { display: grid; width: min(100%, 990px); min-height: 590px; grid-template-columns: 1.05fr .95fr; overflow: hidden; border: 1px solid #e8edf4; border-radius: 22px; background: #fff; box-shadow: 0 25px 80px #26385c14; }
-    .login-intro { position: relative; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 38px; color: #fff; background: linear-gradient(145deg, #263d91, #4263eb 72%, #667cf0); }
+    .login-layout { display: grid; width: min(100%, 990px); min-height: 590px; grid-template-columns: 1.05fr .95fr; overflow: hidden; border: 1px solid #e8edf4; border-radius: 22px; background: #fff; }
+    .login-intro { position: relative; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 38px; color: #fff; background: linear-gradient(145deg, #2f4ad6 0%, #2b6ce5 30%, #3e9bff 100%); }
     .login-intro::before,.login-intro::after { position: absolute; width: 280px; height: 280px; border: 1px solid #ffffff20; border-radius: 50%; content: ""; pointer-events: none; }
     .login-intro::before { right: -120px; bottom: -90px; }
     .login-intro::after { right: -70px; bottom: -140px; width: 380px; height: 380px; }
@@ -289,7 +289,7 @@
       <div class="login-intro">
         <a class="login-brand" href="#" aria-label="Classroom">
           <span class="brand-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="m9 9 2 2 4-4"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v14H6.5A2.5 2.5 0 0 1 4 13.5V4.5A2.5 2.5 0 0 1 6.5 2Z"/><path d="M9 7h7M9 11h7"/></svg>
           </span>
           <span>Classroom</span>
         </a>
@@ -324,17 +324,17 @@
     <aside class="sidebar" aria-label="School navigation">
       <a class="brand" href="#overview" data-view-link="overview" aria-label="Classroom home">
         <span class="brand-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="m9 9 2 2 4-4"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v14H6.5A2.5 2.5 0 0 1 4 13.5V4.5A2.5 2.5 0 0 1 6.5 2Z"/><path d="M9 7h7M9 11h7"/></svg>
         </span>
         <span>Classroom</span>
       </a>
       <p class="nav-label">SCHOOL</p>
       <nav class="nav" aria-label="Main navigation">
-        <a class="nav-link" href="#overview" data-view-link="overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Overview</a>
-        <a class="nav-link active" href="#attendance" data-view-link="attendance" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-3"/><path d="M8 3h8v4H8z"/><path d="m8 14 2.5 2.5L16 11"/></svg>Attendance</a>
-        <a class="nav-link" href="#students" data-view-link="students"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Students</a>
-        <a class="nav-link" href="#classes" data-view-link="classes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>Classes</a>
-        <a class="nav-link" href="#reports" data-view-link="reports"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-5 5"/></svg>Reports</a>
+        <a class="nav-link" href="#overview" data-view-link="overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/></svg> Overview</a>
+        <a class="nav-link active" href="#attendance" data-view-link="attendance" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg> Attendance</a>
+        <a class="nav-link" href="#students" data-view-link="students"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 19v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="9.5" cy="7" r="3.5"/><path d="M20 19v-1a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Students</a>
+        <a class="nav-link" href="#classes" data-view-link="classes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14"/><path d="M8 9h8M8 13h8M8 17h4"/></svg> Classes</a>
+        <a class="nav-link" href="#reports" data-view-link="reports"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20V9"/><path d="M12 20V4"/><path d="M19 20v-7"/></svg> Reports</a>
       </nav>
       <div class="sidebar-bottom">
         <div class="teacher-card">
@@ -347,7 +347,7 @@
     <main class="main" id="attendance">
       <header class="topbar">
         <div class="breadcrumbs">School <span aria-hidden="true">/</span> <strong>Attendance</strong></div>
-        <div class="top-actions"><span class="today-label" id="top-date"></span><span class="top-avatar" id="top-avatar" aria-label="Jordan Davis">JD</span><button type="button" class="logout-button" id="logout-button">Sign out</button></div>
+        <div class="top-actions"><span class="today-label" id="top-date"></span><span class="top-avatar" id="top-avatar" aria-label="Jordan Davis">JD</span><button type="button" class="logout-button" id="logout-button">Log out</button></div>
       </header>
 
       <div class="content" id="attendance-view" data-view="attendance">
@@ -359,7 +359,7 @@
           </div>
           <div class="heading-actions">
             <button type="button" class="button button-outline" id="export-button">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
               Export report
             </button>
             <button type="button" class="button button-primary" id="add-student-button">
@@ -371,19 +371,19 @@
 
         <section class="stats" aria-label="Attendance summary">
           <article class="stat-card">
-            <div class="stat-top"><span class="stat-label">Total students</span><span class="stat-icon blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span></div>
+            <div class="stat-top"><span class="stat-label">Total students</span><span class="stat-icon blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 19v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="9.5" cy="7" r="3.5"/><path d="M20 19v-1a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span></div>
             <div class="stat-value"><strong id="total-count">0</strong><span>in this class</span></div><p class="stat-foot">Enrolled students</p>
           </article>
           <article class="stat-card">
-            <div class="stat-top"><span class="stat-label">Present today</span><span class="stat-icon green" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span></div>
+            <div class="stat-top"><span class="stat-label">Present today</span><span class="stat-icon green" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg></span></div>
             <div class="stat-value"><strong id="present-count">0</strong><span id="present-percent">0%</span></div><p class="stat-foot">Ready to learn</p>
           </article>
           <article class="stat-card">
-            <div class="stat-top"><span class="stat-label">Late arrivals</span><span class="stat-icon amber" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span></div>
+            <div class="stat-top"><span class="stat-label">Late arrivals</span><span class="stat-icon amber" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v5l3 2"/><circle cx="12" cy="12" r="8"/></svg></span></div>
             <div class="stat-value"><strong id="late-count">0</strong><span>students</span></div><p class="stat-foot">Arrived after the bell</p>
           </article>
           <article class="stat-card">
-            <div class="stat-top"><span class="stat-label">Absent today</span><span class="stat-icon red" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg></span></div>
+            <div class="stat-top"><span class="stat-label">Absent today</span><span class="stat-icon red" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span></div>
             <div class="stat-value"><strong id="absent-count">0</strong><span>students</span></div><p class="stat-foot">Follow-up may be needed</p>
           </article>
         </section>
@@ -409,14 +409,14 @@
               <button type="button" class="tab" data-status-filter="excused" aria-pressed="false">Excused <span class="tab-count" data-count="excused">0</span></button>
             </div>
             <div class="tools">
-              <label class="search"><span class="visually-hidden">Search students</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="search-input" type="search" placeholder="Search students…" autocomplete="off"></label>
+              <label class="search"><span class="visually-hidden">Search students</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/></svg><input id="search-input" type="search" placeholder="Search students" aria-label="Search students"></label>
               <label class="date-control"><span class="visually-hidden">Attendance date</span><input id="attendance-date" type="date"></label>
             </div>
           </div>
 
           <div class="table-wrap">
             <table>
-              <thead><tr><th scope="col">Student</th><th scope="col">Student ID</th><th scope="col">Class</th><th scope="col">Check-in</th><th scope="col">Status</th><th scope="col"><span class="visually-hidden">Change status</span></th><th scope="col"><span class="visually-hidden">Student actions</span></th></tr></thead>
+              <thead><tr><th scope="col">Student</th><th scope="col">Student ID</th><th scope="col">Class</th><th scope="col">Check-in</th><th scope="col">Status</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr></thead>
               <tbody id="student-rows"></tbody>
             </table>
             <div class="empty" id="empty-state" role="status">No students match your search. Try another name or filter.</div>
@@ -429,40 +429,38 @@
               <button type="button" class="button button-outline" id="next-page" aria-label="Next page" disabled>Next</button>
             </nav>
             <div class="footer-actions">
-              <span class="save-state" id="save-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>All changes saved</span></span>
+              <span class="save-state" id="save-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 2"/></svg><span>All changes saved</span></span>
               <button type="button" class="button button-primary" id="save-button">Save attendance</button>
             </div>
           </footer>
         </section>
       </div>
       <section class="content extra-view" id="overview-view" data-view="overview" hidden>
-        <header class="view-heading"><div><p class="eyebrow">YOUR CLASSROOM</p><h1>Overview</h1><p class="subtitle">Your school day at a glance.</p></div><button type="button" class="button button-primary" data-open-student>Add student</button></header>
+        <header class="view-heading"><div><p class="eyebrow">YOUR CLASSROOM</p><h1>Overview</h1><p class="subtitle">Your school day at a glance.</p></div><button type="button" class="button button-outline" data-open-student>+ Add student</button></header>
         <div class="view-stats" aria-label="School overview">
           <article class="view-stat"><span>Total students</span><strong id="overview-total">0</strong></article>
           <article class="view-stat"><span>Classes</span><strong id="overview-classes">0</strong></article>
           <article class="view-stat"><span>Present today</span><strong id="overview-present">0</strong></article>
         </div>
-        <section class="view-card"><div class="view-card-heading"><div><h2>Recent attendance</h2><p>Latest student records in your register.</p></div><a class="secondary-button" href="#attendance" data-view-link="attendance">Open attendance</a></div>
-          <div class="table-wrap"><table class="view-table"><thead><tr><th>Student</th><th>Student ID</th><th>Class</th><th>Check-in</th><th>Status</th></tr></thead><tbody id="overview-rows"></tbody></table><div class="inline-empty" id="overview-empty" hidden>No attendance records to show.</div></div>
-        </section>
+        <section class="view-card"><div class="view-card-heading"><div><h2>Recent attendance</h2><p>Latest student records in your register.</p></div><a class="secondary-button" href="#attendance" data-view-link="attendance">Open register</a></div><div class="table-wrap"><table class="view-table"><thead><tr><th>Student</th><th>Student ID</th><th>Class</th><th>Check-in</th><th>Status</th></tr></thead><tbody id="overview-rows"></tbody></table><div class="inline-empty" id="overview-empty" hidden>No student records yet.</div></div></section>
       </section>
       <section class="content extra-view" id="students-view" data-view="students" hidden>
-        <header class="view-heading"><div><p class="eyebrow">SCHOOL DIRECTORY</p><h1>Students</h1><p class="subtitle">View and manage students in your class register.</p></div><button type="button" class="button button-primary" data-open-student>Add student</button></header>
+        <header class="view-heading"><div><p class="eyebrow">SCHOOL DIRECTORY</p><h1>Students</h1><p class="subtitle">View and manage students in your class register.</p></div><button type="button" class="button button-primary" data-open-student>+ Add student</button></header>
         <section class="view-card"><div class="view-card-heading"><div><h2>Student register</h2><p id="students-summary">All students</p></div></div>
-          <div class="view-toolbar"><label class="search"><span class="visually-hidden">Search students</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="directory-search" type="search" placeholder="Search name or ID" autocomplete="off"></label><select id="directory-class" aria-label="Filter by class"></select></div>
-          <div class="table-wrap"><table class="view-table"><thead><tr><th>Student</th><th>Student ID</th><th>Class</th><th>Check-in</th><th>Status</th><th></th></tr></thead><tbody id="directory-rows"></tbody></table><div class="inline-empty" id="directory-empty" hidden>No students match this filter.</div></div>
+          <div class="view-toolbar"><label class="search"><span class="visually-hidden">Search students</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/></svg><input id="directory-search" type="search" placeholder="Search directory" aria-label="Search directory"></label><label><span class="visually-hidden">Filter student directory by class</span><select id="directory-class" aria-label="Filter by class"></select></label></div>
+          <div class="table-wrap"><table class="view-table"><thead><tr><th>Student</th><th>Student ID</th><th>Class</th><th>Check-in</th><th>Status</th><th></th></tr></thead><tbody id="directory-rows"></tbody></table><div class="inline-empty" id="directory-empty" hidden>No matching students.</div></div>
         </section>
       </section>
       <section class="content extra-view" id="classes-view" data-view="classes" hidden>
-        <header class="view-heading"><div><p class="eyebrow">SCHOOL ORGANIZATION</p><h1>Classes</h1><p class="subtitle">Class groups and their current attendance totals.</p></div><button type="button" class="button button-primary" id="add-class-button">Add class</button></header>
-        <section class="view-card"><div class="view-card-heading"><div><h2>Class register</h2><p>Student totals update as you add students.</p></div></div><div class="class-grid" id="class-grid"></div><div class="inline-empty" id="classes-empty" hidden>No classes yet. Add a class to get started.</div></section>
+        <header class="view-heading"><div><p class="eyebrow">SCHOOL ORGANIZATION</p><h1>Classes</h1><p class="subtitle">Class groups and their current attendance totals.</p></div><button type="button" class="button button-primary" id="add-class-button">+ Add class</button></header>
+        <section class="view-card"><div class="view-card-heading"><div><h2>Class register</h2><p>Student totals update as you add students.</p></div></div><div class="class-grid" id="class-grid"></div><div class="inline-empty" id="classes-empty" hidden>No class groups yet.</div></section>
       </section>
       <section class="content extra-view" id="reports-view" data-view="reports" hidden>
-        <header class="view-heading"><div><p class="eyebrow">SCHOOL INSIGHTS</p><h1>Attendance reports</h1><p class="subtitle">Review attendance by class and status, then export the filtered register.</p></div><button type="button" class="button button-primary" id="report-export-button">Export CSV</button></header>
-        <div class="view-stats" aria-label="Attendance report summary"><article class="view-stat"><span>Students in report</span><strong id="report-total">0</strong></article><article class="view-stat"><span>Present or late</span><strong id="report-attended">0</strong></article><article class="view-stat"><span>Attendance rate</span><strong id="report-rate">0%</strong></article></div>
+        <header class="view-heading"><div><p class="eyebrow">SCHOOL INSIGHTS</p><h1>Attendance reports</h1><p class="subtitle">Review attendance by class and status, then export the filtered register.</p></div><button type="button" class="button button-outline" id="report-export-button">Export CSV</button></header>
+        <div class="view-stats" aria-label="Attendance report summary"><article class="view-stat"><span>Students in report</span><strong id="report-total">0</strong></article><article class="view-stat"><span>Attended</span><strong id="report-attended">0</strong></article><article class="view-stat"><span>Attendance rate</span><strong id="report-rate">0%</strong></article></div>
         <section class="view-card"><div class="view-card-heading"><div><h2>Attendance breakdown</h2><p>Use the filters to narrow this report.</p></div></div>
           <div class="view-toolbar"><select id="report-class" aria-label="Filter report by class"></select><select id="report-status" aria-label="Filter report by status"><option value="all">All statuses</option><option value="present">Present</option><option value="late">Late</option><option value="absent">Absent</option><option value="excused">Excused</option></select></div>
-          <div class="table-wrap"><table class="view-table"><thead><tr><th>Student</th><th>Student ID</th><th>Class</th><th>Check-in</th><th>Status</th></tr></thead><tbody id="report-rows"></tbody></table><div class="inline-empty" id="report-empty" hidden>No records match this report.</div></div>
+          <div class="table-wrap"><table class="view-table"><thead><tr><th>Student</th><th>Student ID</th><th>Class</th><th>Check-in</th><th>Status</th></tr></thead><tbody id="report-rows"></tbody></table><div class="inline-empty" id="report-empty" hidden>No student records in the selected report.</div></div>
         </section>
       </section>
       <footer class="site-footer">Classroom · Attendance and student records are saved on this device.</footer>
@@ -528,7 +526,7 @@
         { id: 'STU-108', name: 'Mason Taylor', className: '9-A', checkIn: '08:23 AM', status: 'late' }
       ];
       const icons = {
-        edit: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/></svg>'
+        edit: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg>'
       };
       let classes = loadClasses();
       let students = loadStudents();
@@ -563,9 +561,7 @@
           const saved = localStorage.getItem(`${STORAGE_KEY}-classes`);
           if (!saved) return [...seededClasses];
           const parsed = JSON.parse(saved);
-          if (!Array.isArray(parsed) || !parsed.every((className) =>
-            typeof className === 'string' && /^[1-9]\d?-[\w-]{1,8}$/.test(className)
-          ) || new Set(parsed).size !== parsed.length) {
+          if (!Array.isArray(parsed) || !parsed.every((className) => typeof className === 'string' && /^[1-9]\d?-[\w-]{1,8}$/.test(className)) || new Set(parsed).size !== parsed.length) {
             throw new Error('Stored class data has an unexpected format.');
           }
           return parsed;
@@ -580,13 +576,7 @@
           const saved = localStorage.getItem(STORAGE_KEY);
           if (!saved) return seededStudents.map((student) => ({ ...student }));
           const parsed = JSON.parse(saved);
-          if (!Array.isArray(parsed) || !parsed.every((student) =>
-            student && typeof student.id === 'string' &&
-            typeof student.name === 'string' &&
-            classes.includes(student.className) &&
-            ['present', 'late', 'absent', 'excused'].includes(student.status) &&
-            typeof student.checkIn === 'string'
-          )) {
+          if (!Array.isArray(parsed) || !parsed.every((student) => student && typeof student.id === 'string' && typeof student.name === 'string' && classes.includes(student.className) && ['present', 'late', 'absent', 'excused'].includes(student.status) && typeof student.checkIn === 'string')) {
             throw new Error('Stored attendance data has an unexpected format.');
           }
           return parsed;
@@ -683,7 +673,7 @@
             <td></td>
             <td></td>
             <td><span class="status"></span></td>
-            <td><label><span class="visually-hidden">Change attendance for ${escapeHtml(student.name)}</span><select class="status-select" data-student-id="${escapeHtml(student.id)}" aria-label="Attendance status for ${escapeHtml(student.name)}"></select></label></td>
+            <td><label><span class="visually-hidden">Change attendance for ${escapeHtml(student.name)}</span><select class="status-select" data-student-id="${escapeHtml(student.id)}" aria-label="Change attendance for ${escapeHtml(student.name)}"></select></label></td>
             <td><button class="row-action" type="button" data-edit-id="${escapeHtml(student.id)}" aria-label="Edit ${escapeHtml(student.name)} status">${icons.edit}</button></td>`;
           row.querySelector('.student-avatar').textContent = student.name.split(/\s+/).map((part) => part[0]).slice(0, 2).join('').toUpperCase();
           row.querySelector('.student-name strong').textContent = student.name;
@@ -743,10 +733,7 @@
 
         const directoryQuery = document.querySelector('#directory-search').value.trim().toLocaleLowerCase();
         const directoryClass = document.querySelector('#directory-class').value;
-        const directoryStudents = students.filter((student) =>
-          (directoryClass === 'all' || student.className === directoryClass) &&
-          (!directoryQuery || `${student.name} ${student.id}`.toLocaleLowerCase().includes(directoryQuery))
-        );
+        const directoryStudents = students.filter((student) => (directoryClass === 'all' || student.className === directoryClass) && (!directoryQuery || `${student.name} ${student.id}`.toLocaleLowerCase().includes(directoryQuery)));
         document.querySelector('#students-summary').textContent = `${directoryStudents.length} student${directoryStudents.length === 1 ? '' : 's'} shown`;
         const directoryRows = document.querySelector('#directory-rows');
         directoryRows.replaceChildren(...directoryStudents.map((student) => {
@@ -784,10 +771,7 @@
 
         const reportClass = document.querySelector('#report-class').value;
         const reportStatus = document.querySelector('#report-status').value;
-        const reportStudents = students.filter((student) =>
-          (reportClass === 'all' || student.className === reportClass) &&
-          (reportStatus === 'all' || student.status === reportStatus)
-        );
+        const reportStudents = students.filter((student) => (reportClass === 'all' || student.className === reportClass) && (reportStatus === 'all' || student.status === reportStatus));
         const attended = reportStudents.filter((student) => ['present', 'late'].includes(student.status)).length;
         document.querySelector('#report-total').textContent = reportStudents.length;
         document.querySelector('#report-attended').textContent = attended;
@@ -837,14 +821,13 @@
       }
 
       function escapeHtml(value) {
-        return value.replace(/[&<>"']/g, (character) => ({
-          '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-        })[character]);
+        return value.replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
       }
 
       function saveStudents() {
         try {
           localStorage.setItem(STORAGE_KEY, JSON.stringify(students));
+          localStorage.setItem(`${STORAGE_KEY}-classes`, JSON.stringify(classes));
           isDirty = false;
           saveState.classList.remove('unsaved');
           saveState.querySelector('span').textContent = 'All changes saved';
@@ -860,9 +843,7 @@
         const records = visibleStudents();
         const csv = [
           ['Student name', 'Student ID', 'Class', 'Date', 'Check-in', 'Status'],
-          ...records.map((student) => [
-            student.name, student.id, classLabel(student.className), dateInput.value, student.checkIn, statusLabels[student.status]
-          ])
+          ...records.map((student) => [student.name, student.id, classLabel(student.className), dateInput.value, student.checkIn, statusLabels[student.status]])
         ].map((line) => line.map(quote).join(',')).join('\r\n');
         const url = URL.createObjectURL(new Blob(['\ufeff', csv], { type: 'text/csv;charset=utf-8' }));
         const link = document.createElement('a');
@@ -878,10 +859,7 @@
       function downloadReportCsv() {
         const className = document.querySelector('#report-class').value;
         const status = document.querySelector('#report-status').value;
-        const records = students.filter((student) =>
-          (className === 'all' || student.className === className) &&
-          (status === 'all' || student.status === status)
-        );
+        const records = students.filter((student) => (className === 'all' || student.className === className) && (status === 'all' || student.status === status));
         const quote = (value) => `"${String(value).replaceAll('"', '""')}"`;
         const csv = [
           ['Student name', 'Student ID', 'Class', 'Date', 'Check-in', 'Status'],
@@ -896,6 +874,23 @@
         link.remove();
         URL.revokeObjectURL(url);
         showToast(`Exported ${records.length} report record${records.length === 1 ? '' : 's'}.`);
+      }
+
+      function loginHandler(event) {
+        event.preventDefault();
+        const email = loginForm.email.value.trim().toLowerCase();
+        const password = loginForm.password.value;
+        if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+          localStorage.setItem(AUTH_KEY, JSON.stringify({ email }));
+          setSignedIn(email);
+          return;
+        }
+        loginError.textContent = 'Incorrect email or password. Try admin@school.com / admin.';
+      }
+
+      function logout() {
+        localStorage.removeItem(AUTH_KEY);
+        showLogin();
       }
 
       dateInput.value = dateKey(today);
@@ -971,17 +966,25 @@
       document.querySelector('#report-class').addEventListener('change', renderOtherViews);
       document.querySelector('#report-status').addEventListener('change', renderOtherViews);
       document.querySelector('#report-export-button').addEventListener('click', downloadReportCsv);
-
       document.querySelector('#export-button').addEventListener('click', downloadCsv);
       document.querySelector('#save-button').addEventListener('click', saveStudents);
+      document.querySelector('#logout-button').addEventListener('click', logout);
       document.querySelectorAll('#add-student-button,[data-open-student]').forEach((button) => button.addEventListener('click', () => {
         studentForm.elements.className.value = classFilter.value === 'all' ? '10-A' : classFilter.value;
         dialog.showModal();
         studentForm.elements.name.focus();
       }));
+      document.querySelector('#add-class-button').addEventListener('click', () => {
+        classDialog.showModal();
+        classForm.elements.grade.focus();
+      });
       document.querySelector('#cancel-dialog').addEventListener('click', () => dialog.close());
+      document.querySelector('#cancel-class-dialog').addEventListener('click', () => classDialog.close());
       dialog.addEventListener('click', (event) => {
         if (event.target === dialog) dialog.close();
+      });
+      classDialog.addEventListener('click', (event) => {
+        if (event.target === classDialog) classDialog.close();
       });
       studentForm.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -998,100 +1001,51 @@
         students.push({ id, name, className, checkIn: '—', status: 'absent' });
         markDirty();
         currentPage = Math.ceil(visibleStudents().length / PAGE_SIZE);
-        render();
-        dialog.close();
         studentForm.reset();
-        updateClassOptions();
-        showToast(`${name} added to the register.`);
-      });
-
-      document.querySelector('#add-class-button').addEventListener('click', () => {
-        classDialog.showModal();
-        classForm.elements.grade.focus();
-      });
-      document.querySelector('#cancel-class-dialog').addEventListener('click', () => classDialog.close());
-      classDialog.addEventListener('click', (event) => {
-        if (event.target === classDialog) classDialog.close();
+        dialog.close();
+        render();
+        showToast(`Added ${name} to ${classLabel(className)}.`);
       });
       classForm.addEventListener('submit', (event) => {
         event.preventDefault();
-        const grade = classForm.elements.grade.value.trim();
-        const section = classForm.elements.section.value.trim().toUpperCase();
+        const formData = new FormData(classForm);
+        const grade = String(formData.get('grade')).trim();
+        const section = String(formData.get('section')).trim();
         const className = `${grade}-${section}`;
+        if (!/^[1-9]\d?-[A-Za-z0-9]{1,8}$/.test(className)) {
+          classForm.elements.section.setCustomValidity('Use a valid grade and section, like 8-A.');
+          classForm.elements.section.reportValidity();
+          return;
+        }
         if (classes.includes(className)) {
           classForm.elements.section.setCustomValidity('This class already exists.');
           classForm.elements.section.reportValidity();
-          classForm.elements.section.addEventListener('input', () => classForm.elements.section.setCustomValidity(''), { once: true });
           return;
         }
         classes.push(className);
-        try {
-          localStorage.setItem(`${STORAGE_KEY}-classes`, JSON.stringify(classes));
-        } catch (error) {
-          classes.pop();
-          console.error('Unable to save the new class.', error);
-          showToast('Could not save this class. Check your browser storage settings.');
-          return;
-        }
-        updateClassOptions();
+        markDirty();
         classForm.reset();
         classDialog.close();
         render();
-        showToast(`${classLabel(className)} added.`);
+        showToast(`Created ${classLabel(className)}.`);
       });
-
-      window.addEventListener('beforeunload', (event) => {
-        if (!isDirty) return;
-        event.preventDefault();
-        event.returnValue = '';
-      });
-
-      loginForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        if (!loginForm.reportValidity()) return;
-        const email = loginEmail.value.trim();
-        const password = document.querySelector('#login-password').value;
-        if (email.toLocaleLowerCase() !== ADMIN_EMAIL || password !== ADMIN_PASSWORD) {
-          loginError.textContent = 'The email address or password is incorrect.';
-          return;
-        }
-        try {
-          sessionStorage.setItem(AUTH_KEY, email);
-        } catch (error) {
-          console.error('Unable to start the demo session.', error);
-          loginError.textContent = 'Sign-in could not be saved in this browser session. Check your storage settings and try again.';
-          return;
-        }
-        setSignedIn(email);
-      });
-      document.querySelector('#logout-button').addEventListener('click', () => {
-        try {
-          sessionStorage.removeItem(AUTH_KEY);
-        } catch (error) {
-          console.error('Unable to end the demo session.', error);
-          showToast('Sign-out could not be saved. Check your browser storage settings.');
-          return;
-        }
-        showLogin();
-      });
-
-      updateClassOptions();
-      dateLabel.textContent = formatDate(today);
-      render();
-      activateView(window.location.hash.slice(1) || 'attendance');
-      try {
-        const signedInEmail = sessionStorage.getItem(AUTH_KEY);
-        if (signedInEmail && signedInEmail.toLocaleLowerCase() === ADMIN_EMAIL) {
-          setSignedIn(signedInEmail);
-        } else {
-          sessionStorage.removeItem(AUTH_KEY);
-          showLogin();
-        }
-      } catch (error) {
-        console.error('Unable to restore the demo session.', error);
+      loginForm.addEventListener('submit', loginHandler);
+      const savedLogin = JSON.parse(localStorage.getItem(AUTH_KEY) || 'null');
+      if (savedLogin && savedLogin.email) {
+        setSignedIn(savedLogin.email);
+      } else {
         showLogin();
       }
+      render();
+      activateView('attendance');
     })();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const supabaseUrl = 'https://YOUR_PROJECT_REF.supabase.co';
+    const supabaseKey = 'YOUR_ANON_KEY';
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
   </script>
 </body>
 </html>
