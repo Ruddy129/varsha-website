@@ -53,7 +53,7 @@
     .teacher-copy strong { font-size: 12px; }
     .teacher-copy span { color: var(--muted); font-size: 10px; }
     .main { min-width: 0; }
-    .topbar { position: sticky; z-index: 2; top: 0; display: flex; height: 67px; align-items: center; justify-content: space-between; padding: 0 clamp(22px, 4vw, 52px); border-bottom: 1px solid var(--line); background: #ffffffed; backdrop-filter: blur(12px); }
+    .topbar { position: sticky; z-index: 2; top: 0; display: flex; height: 67px; align-items: center; justify-content: space-between; padding: 0 clamp(22px, 4vw, 52px); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.8); backdrop-filter: blur(12px); }
     .breadcrumbs { color: #8b95a7; font-size: 12px; }
     .breadcrumbs strong { color: #515e75; font-weight: 650; }
     .top-actions { display: flex; align-items: center; gap: 18px; }
@@ -65,7 +65,7 @@
     h1 { margin: 0; font-size: clamp(26px, 3vw, 33px); font-weight: 730; letter-spacing: -.055em; line-height: 1.15; }
     .subtitle { margin: 9px 0 0; color: var(--muted); font-size: 13px; }
     .heading-actions { display: flex; flex: none; gap: 9px; }
-    .button { display: inline-flex; min-height: 39px; align-items: center; justify-content: center; gap: 8px; padding: 0 13px; border: 1px solid transparent; border-radius: 9px; font-size: 12px; font-weight: 680; transition: background .15s, border-color .15s, transform .15s; }
+    .button { display: inline-flex; min-height: 39px; align-items: center; justify-content: center; gap: 8px; padding: 0 13px; border: 1px solid transparent; border-radius: 9px; font-size: 12px; font-weight: 650; transition: transform .15s ease, background .15s ease, border-color .15s ease; }
     .button:hover { transform: translateY(-1px); }
     .button svg { width: 15px; height: 15px; }
     .button-primary { color: #fff; background: var(--blue); box-shadow: 0 4px 10px #4263eb28; }
@@ -163,11 +163,11 @@
     .class-card strong { display: block; margin-top: 16px; font-size: 22px; }
     .view-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; padding: 0 18px 15px; }
     .view-toolbar select { height: 35px; padding: 0 10px; border: 1px solid #e1e6ef; border-radius: 8px; color: #46536a; background: #fff; font-size: 11px; }
-    .secondary-button { display: inline-flex; min-height: 35px; align-items: center; justify-content: center; padding: 0 11px; border: 1px solid #e1e6ef; border-radius: 8px; color: #505d73; background: #fff; font-size: 11px; font-weight: 650; }
+    .secondary-button { display: inline-flex; min-height: 35px; align-items: center; justify-content: center; padding: 0 11px; border: 1px solid #e1e6ef; border-radius: 8px; color: #505d73; background: #fff; }
     .secondary-button:hover { background: #f7f8fb; }
     .inline-empty { padding: 26px 18px; color: var(--muted); text-align: center; font-size: 12px; }
     .site-footer { padding: 0 clamp(22px,4vw,52px) 25px; color: #929daf; font-size: 10px; }
-    .toast { position: fixed; right: 24px; bottom: 23px; z-index: 5; padding: 12px 16px; border: 1px solid #d5ecde; border-radius: 10px; color: #286c4d; background: #f1fbf4; box-shadow: 0 10px 30px #17243b17; font-size: 12px; opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity .2s, transform .2s; }
+    .toast { position: fixed; right: 24px; bottom: 23px; z-index: 5; padding: 12px 16px; border: 1px solid #d5ecde; border-radius: 10px; color: #286c4d; background: #f1fbf4; box-shadow: 0 10px 30px rgba(32, 42, 68, .12); opacity: 0; transform: translateY(8px); transition: opacity .2s ease, transform .2s ease; }
     .toast.show { opacity: 1; transform: translateY(0); }
     dialog { width: min(420px, calc(100% - 32px)); padding: 0; border: 1px solid var(--line); border-radius: 15px; color: var(--ink); box-shadow: 0 25px 80px #17243b30; }
     dialog::backdrop { background: #17243b55; backdrop-filter: blur(3px); }
@@ -180,8 +180,8 @@
     .visually-hidden { position: absolute; left: 0; overflow: hidden; width: 1px; height: 1px; clip: rect(0,0,0,0); white-space: nowrap; clip-path: inset(50%); }
     #login-screen[hidden],#app-shell[hidden] { display: none; }
     .login-screen { display: grid; min-height: 100vh; place-items: center; padding: 32px; background: radial-gradient(ellipse at 18% 8%, #e8edff 0, transparent 38%), var(--canvas); }
-    .login-layout { display: grid; width: min(100%, 990px); min-height: 590px; grid-template-columns: 1.05fr .95fr; overflow: hidden; border: 1px solid #e8edf4; border-radius: 22px; background: #fff; box-shadow: 0 25px 80px #26385c14; }
-    .login-intro { position: relative; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 38px; color: #fff; background: linear-gradient(145deg, #263d91, #4263eb 72%, #667cf0); }
+    .login-layout { display: grid; width: min(100%, 990px); min-height: 590px; grid-template-columns: 1.05fr .95fr; overflow: hidden; border: 1px solid #e8edf4; border-radius: 22px; background: #fff; box-shadow: 0 32px 80px rgba(20, 31, 55, .08); }
+    .login-intro { position: relative; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 38px; color: #fff; background: linear-gradient(145deg, #2a5ef2, #173aa8); }
     .login-intro::before,.login-intro::after { position: absolute; width: 280px; height: 280px; border: 1px solid #ffffff20; border-radius: 50%; content: ""; pointer-events: none; }
     .login-intro::before { right: -120px; bottom: -90px; }
     .login-intro::after { right: -70px; bottom: -140px; width: 380px; height: 380px; }
@@ -291,7 +291,7 @@
       <div class="login-intro">
         <a class="login-brand" href="#" aria-label="Classroom">
           <span class="brand-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="m9 9 2 2 4-4"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v13.5H6.5A2.5 2.5 0 0 1 4 13V4.5A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 8h9M8 12h6"/></svg>
           </span>
           <span>Classroom</span>
         </a>
@@ -319,7 +319,7 @@
           <button type="submit" class="button button-primary login-submit">Sign in</button>
         </form>
         <button type="button" class="auth-toggle" id="auth-mode-toggle">Create an account</button>
-        <p class="login-note">Your account and attendance records are securely stored in your Supabase project.</p>
+        <p class="login-note">Demo login: admin@gmail.com / admin123</p>
       </div>
     </div>
   </section>
@@ -327,22 +327,22 @@
     <aside class="sidebar" aria-label="School navigation">
       <a class="brand" href="#overview" data-view-link="overview" aria-label="Classroom home">
         <span class="brand-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="m9 9 2 2 4-4"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v13.5H6.5A2.5 2.5 0 0 1 4 13V4.5A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 8h9M8 12h6"/></svg>
         </span>
         <span>Classroom</span>
       </a>
       <p class="nav-label">SCHOOL</p>
       <nav class="nav" aria-label="Main navigation">
-        <a class="nav-link" href="#overview" data-view-link="overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Overview</a>
-        <a class="nav-link active" href="#attendance" data-view-link="attendance" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-3"/><path d="M8 3h8v4H8z"/><path d="m8 14 2.5 2.5L16 11"/></svg>Attendance</a>
-        <a class="nav-link" href="#students" data-view-link="students"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Students</a>
-        <a class="nav-link" href="#classes" data-view-link="classes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>Classes</a>
-        <a class="nav-link" href="#reports" data-view-link="reports"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-5 5"/></svg>Reports</a>
+        <a class="nav-link" href="#overview" data-view-link="overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13.5 12 4l8 9.5"/><path d="M6.5 10.5V19h11v-8.5"/></svg><span>Overview</span></a>
+        <a class="nav-link active" href="#attendance" data-view-link="attendance" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="15" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg><span>Attendance</span></a>
+        <a class="nav-link" href="#students" data-view-link="students"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 19v-1a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v1"/><circle cx="10" cy="7" r="3"/><path d="M22 19v-1a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Students</span></a>
+        <a class="nav-link" href="#classes" data-view-link="classes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/><path d="M9 10h6M9 14h6M9 18h4"/></svg><span>Classes</span></a>
+        <a class="nav-link" href="#reports" data-view-link="reports"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V8"/><path d="M12 20V4"/><path d="M19 20v-9"/></svg><span>Reports</span></a>
       </nav>
       <div class="sidebar-bottom">
         <div class="teacher-card">
-          <span class="teacher-avatar" aria-hidden="true">JD</span>
-          <span class="teacher-copy"><strong id="teacher-name">Jordan Davis</strong><span>Class teacher</span></span>
+          <span class="teacher-avatar" aria-hidden="true">AD</span>
+          <span class="teacher-copy"><strong id="teacher-name">Admin User</strong><span>Class teacher</span></span>
         </div>
       </div>
     </aside>
@@ -350,7 +350,7 @@
     <main class="main" id="attendance">
       <header class="topbar">
         <div class="breadcrumbs">School <span aria-hidden="true">/</span> <strong>Attendance</strong></div>
-        <div class="top-actions"><span class="today-label" id="top-date"></span><span class="top-avatar" id="top-avatar" aria-label="Jordan Davis">JD</span><button type="button" class="logout-button" id="logout-button">Sign out</button></div>
+        <div class="top-actions"><span class="today-label" id="top-date"></span><span class="top-avatar" id="top-avatar" aria-label="Admin User">AD</span><button type="button" class="logout-button" id="logout-button">Log out</button></div>
       </header>
 
       <div class="content" id="attendance-view" data-view="attendance">
@@ -361,32 +361,26 @@
             <p class="subtitle">A little check-in goes a long way. Here's today's class snapshot.</p>
           </div>
           <div class="heading-actions">
-            <button type="button" class="button button-outline" id="export-button">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></svg>
-              Export report
-            </button>
-            <button type="button" class="button button-primary" id="add-student-button">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-              Add student
-            </button>
+            <button type="button" class="button button-outline" id="export-button">Export report</button>
+            <button type="button" class="button button-primary" id="add-student-button">Add student</button>
           </div>
         </section>
 
         <section class="stats" aria-label="Attendance summary">
           <article class="stat-card">
-            <div class="stat-top"><span class="stat-label">Total students</span><span class="stat-icon blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span></div>
+            <div class="stat-top"><span class="stat-label">Total students</span><span class="stat-icon blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span></div>
             <div class="stat-value"><strong id="total-count">0</strong><span>in this class</span></div><p class="stat-foot">Enrolled students</p>
           </article>
           <article class="stat-card">
-            <div class="stat-top"><span class="stat-label">Present today</span><span class="stat-icon green" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span></div>
+            <div class="stat-top"><span class="stat-label">Present today</span><span class="stat-icon green" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 2"/></svg></span></div>
             <div class="stat-value"><strong id="present-count">0</strong><span id="present-percent">0%</span></div><p class="stat-foot">Ready to learn</p>
           </article>
           <article class="stat-card">
-            <div class="stat-top"><span class="stat-label">Late arrivals</span><span class="stat-icon amber" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span></div>
+            <div class="stat-top"><span class="stat-label">Late arrivals</span><span class="stat-icon amber" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v6l4 2"/><circle cx="12" cy="12" r="8"/></svg></span></div>
             <div class="stat-value"><strong id="late-count">0</strong><span>students</span></div><p class="stat-foot">Arrived after the bell</p>
           </article>
           <article class="stat-card">
-            <div class="stat-top"><span class="stat-label">Absent today</span><span class="stat-icon red" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg></span></div>
+            <div class="stat-top"><span class="stat-label">Absent today</span><span class="stat-icon red" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg></span></div>
             <div class="stat-value"><strong id="absent-count">0</strong><span>students</span></div><p class="stat-foot">Follow-up may be needed</p>
           </article>
         </section>
@@ -412,14 +406,14 @@
               <button type="button" class="tab" data-status-filter="excused" aria-pressed="false">Excused <span class="tab-count" data-count="excused">0</span></button>
             </div>
             <div class="tools">
-              <label class="search"><span class="visually-hidden">Search students</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="search-input" type="search" placeholder="Search students…" autocomplete="off"></label>
+              <label class="search"><span class="visually-hidden">Search students</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/></svg><input id="student-search" type="search" placeholder="Search"></label>
               <label class="date-control"><span class="visually-hidden">Attendance date</span><input id="attendance-date" type="date"></label>
             </div>
           </div>
 
           <div class="table-wrap">
             <table>
-              <thead><tr><th scope="col">Student</th><th scope="col">Student ID</th><th scope="col">Class</th><th scope="col">Check-in</th><th scope="col">Status</th><th scope="col"><span class="visually-hidden">Change status</span></th><th scope="col"><span class="visually-hidden">Student actions</span></th></tr></thead>
+              <thead><tr><th scope="col">Student</th><th scope="col">Student ID</th><th scope="col">Class</th><th scope="col">Check-in</th><th scope="col">Status</th><th scope="col">Action</th></tr></thead>
               <tbody id="student-rows"></tbody>
             </table>
             <div class="empty" id="empty-state" role="status">No students match your search. Try another name or filter.</div>
@@ -432,43 +426,12 @@
               <button type="button" class="button button-outline" id="next-page" aria-label="Next page" disabled>Next</button>
             </nav>
             <div class="footer-actions">
-              <span class="save-state" id="save-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>All changes saved</span></span>
+              <span class="save-state" id="save-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5"/></svg><span>Saved</span></span>
               <button type="button" class="button button-primary" id="save-button">Save attendance</button>
             </div>
           </footer>
         </section>
       </div>
-      <section class="content extra-view" id="overview-view" data-view="overview" hidden>
-        <header class="view-heading"><div><p class="eyebrow">YOUR CLASSROOM</p><h1>Overview</h1><p class="subtitle">Your school day at a glance.</p></div><button type="button" class="button button-primary" data-open-student>Add student</button></header>
-        <div class="view-stats" aria-label="School overview">
-          <article class="view-stat"><span>Total students</span><strong id="overview-total">0</strong></article>
-          <article class="view-stat"><span>Classes</span><strong id="overview-classes">0</strong></article>
-          <article class="view-stat"><span>Present today</span><strong id="overview-present">0</strong></article>
-        </div>
-        <section class="view-card"><div class="view-card-heading"><div><h2>Recent attendance</h2><p>Latest student records in your register.</p></div><a class="secondary-button" href="#attendance" data-view-link="attendance">Open attendance</a></div>
-          <div class="table-wrap"><table class="view-table"><thead><tr><th>Student</th><th>Student ID</th><th>Class</th><th>Check-in</th><th>Status</th></tr></thead><tbody id="overview-rows"></tbody></table><div class="inline-empty" id="overview-empty" hidden>No attendance records to show.</div></div>
-        </section>
-      </section>
-      <section class="content extra-view" id="students-view" data-view="students" hidden>
-        <header class="view-heading"><div><p class="eyebrow">SCHOOL DIRECTORY</p><h1>Students</h1><p class="subtitle">View and manage students in your class register.</p></div><button type="button" class="button button-primary" data-open-student>Add student</button></header>
-        <section class="view-card"><div class="view-card-heading"><div><h2>Student register</h2><p id="students-summary">All students</p></div></div>
-          <div class="view-toolbar"><label class="search"><span class="visually-hidden">Search students</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="directory-search" type="search" placeholder="Search name or ID" autocomplete="off"></label><select id="directory-class" aria-label="Filter by class"></select></div>
-          <div class="table-wrap"><table class="view-table"><thead><tr><th>Student</th><th>Student ID</th><th>Class</th><th>Check-in</th><th>Status</th><th></th></tr></thead><tbody id="directory-rows"></tbody></table><div class="inline-empty" id="directory-empty" hidden>No students match this filter.</div></div>
-        </section>
-      </section>
-      <section class="content extra-view" id="classes-view" data-view="classes" hidden>
-        <header class="view-heading"><div><p class="eyebrow">SCHOOL ORGANIZATION</p><h1>Classes</h1><p class="subtitle">Class groups and their current attendance totals.</p></div><button type="button" class="button button-primary" id="add-class-button">Add class</button></header>
-        <section class="view-card"><div class="view-card-heading"><div><h2>Class register</h2><p>Student totals update as you add students.</p></div></div><div class="class-grid" id="class-grid"></div><div class="inline-empty" id="classes-empty" hidden>No classes yet. Add a class to get started.</div></section>
-      </section>
-      <section class="content extra-view" id="reports-view" data-view="reports" hidden>
-        <header class="view-heading"><div><p class="eyebrow">SCHOOL INSIGHTS</p><h1>Attendance reports</h1><p class="subtitle">Review attendance by class and status, then export the filtered register.</p></div><button type="button" class="button button-primary" id="report-export-button">Export CSV</button></header>
-        <div class="view-stats" aria-label="Attendance report summary"><article class="view-stat"><span>Students in report</span><strong id="report-total">0</strong></article><article class="view-stat"><span>Present or late</span><strong id="report-attended">0</strong></article><article class="view-stat"><span>Attendance rate</span><strong id="report-rate">0%</strong></article></div>
-        <section class="view-card"><div class="view-card-heading"><div><h2>Attendance breakdown</h2><p>Use the filters to narrow this report.</p></div></div>
-          <div class="view-toolbar"><select id="report-class" aria-label="Filter report by class"></select><select id="report-status" aria-label="Filter report by status"><option value="all">All statuses</option><option value="present">Present</option><option value="late">Late</option><option value="absent">Absent</option><option value="excused">Excused</option></select></div>
-          <div class="table-wrap"><table class="view-table"><thead><tr><th>Student</th><th>Student ID</th><th>Class</th><th>Check-in</th><th>Status</th></tr></thead><tbody id="report-rows"></tbody></table><div class="inline-empty" id="report-empty" hidden>No records match this report.</div></div>
-        </section>
-      </section>
-      <footer class="site-footer">Classroom · Attendance and student records are saved on this device.</footer>
     </main>
   </div>
 
@@ -482,716 +445,106 @@
       <div class="dialog-actions"><button type="button" class="button button-outline" id="cancel-dialog">Cancel</button><button type="submit" class="button button-primary">Add to register</button></div>
     </form>
   </dialog>
-  <dialog id="class-dialog" aria-labelledby="class-dialog-title">
-    <form class="dialog-inner" id="class-form">
-      <h2 id="class-dialog-title">Add a class</h2>
-      <p>Create a class group for your student register.</p>
-      <label class="field">Grade<input name="grade" inputmode="numeric" placeholder="e.g. 8" required maxlength="2" pattern="[1-9][0-9]?"></label>
-      <label class="field">Section<input name="section" placeholder="e.g. A" required maxlength="8" pattern="[A-Za-z0-9]{1,8}"></label>
-      <div class="dialog-actions"><button type="button" class="button button-outline" id="cancel-class-dialog">Cancel</button><button type="submit" class="button button-primary">Create class</button></div>
-    </form>
-  </dialog>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0"></script>
   <script>
     (() => {
+      const DEMO_EMAIL = 'admin@gmail.com';
+      const DEMO_PASSWORD = 'admin123';
+      const DEMO_NAME = 'Admin User';
       const STORAGE_KEY = 'classroom-attendance-v1';
       const CLASS_STORAGE_KEY = `${STORAGE_KEY}-classes`;
-      const SUPABASE_URL = 'https://ahkizjnqlgtljxjyivqm.supabase.co';
-      const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_rQyrz5EJ7sOW_DBOe3fW2g_DNFx0sXm';
-      const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
-      const PAGE_SIZE = 5;
-      const today = new Date();
-      const loginScreen = document.querySelector('#login-screen');
-      const appShell = document.querySelector('#app-shell');
-      const loginForm = document.querySelector('#login-form');
-      const loginEmail = document.querySelector('#login-email');
-      const loginError = document.querySelector('#login-error');
-      const loginTitle = document.querySelector('#login-title');
-      const loginSubtitle = document.querySelector('#login-subtitle');
-      const authModeToggle = document.querySelector('#auth-mode-toggle');
-      const loginSubmit = loginForm.querySelector('[type="submit"]');
-      const loginPassword = document.querySelector('#login-password');
-      const dateInput = document.querySelector('#attendance-date');
-      const dateLabel = document.querySelector('#top-date');
-      const rows = document.querySelector('#student-rows');
-      const searchInput = document.querySelector('#search-input');
-      const classFilter = document.querySelector('#class-filter');
-      const emptyState = document.querySelector('#empty-state');
-      const saveState = document.querySelector('#save-state');
-      const toast = document.querySelector('#toast');
-      const dialog = document.querySelector('#student-dialog');
-      const studentForm = document.querySelector('#student-form');
-      const classDialog = document.querySelector('#class-dialog');
-      const classForm = document.querySelector('#class-form');
-      const statusLabels = { present: 'Present', late: 'Late', absent: 'Absent', excused: 'Excused' };
-      const seededClasses = ['10-A', '10-B', '9-A'];
-      const icons = {
-        edit: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/></svg>'
-      };
-      let classes = [...seededClasses];
-      let students = [];
-      let activeStatus = 'all';
-      let currentPage = 1;
-      let isDirty = false;
-      let toastTimer;
-      let currentUser = null;
-      let authMode = 'signin';
-
-      function setSignedIn(email) {
-        const name = email.split('@')[0].replace(/[._-]+/g, ' ').trim() || 'Teacher';
-        const initials = name.split(/\s+/).slice(0, 2).map((part) => part[0]).join('').toUpperCase();
-        document.querySelector('#teacher-name').textContent = name;
-        const avatar = document.querySelector('#top-avatar');
-        avatar.textContent = initials;
-        avatar.setAttribute('aria-label', name);
-        loginScreen.hidden = true;
-        appShell.hidden = false;
-        document.title = 'Classroom · Attendance';
-      }
-
-      function showLogin() {
-        appShell.hidden = true;
-        loginScreen.hidden = false;
-        document.title = 'Classroom · Sign in';
-        setAuthMode('signin');
-        loginError.textContent = '';
-        loginForm.reset();
-        loginEmail.focus();
-      }
-
-      function setAuthMode(mode) {
-        authMode = mode;
-        const isSignUp = mode === 'signup';
-        loginTitle.textContent = isSignUp ? 'Create your Classroom account' : 'Sign in to Classroom';
-        loginSubtitle.textContent = isSignUp
-          ? 'Set up your profile and start tracking attendance.'
-          : 'Welcome back. Enter your details to open your attendance dashboard.';
-        loginSubmit.textContent = isSignUp ? 'Create account' : 'Sign in';
-        authModeToggle.textContent = isSignUp ? 'Back to sign in' : 'Create an account';
-      }
-
-      function readLegacyClasses() {
-        try {
-          const saved = localStorage.getItem(CLASS_STORAGE_KEY);
-          if (!saved) return [];
-          const parsed = JSON.parse(saved);
-          if (!Array.isArray(parsed) || !parsed.every((className) =>
-            typeof className === 'string' && /^[1-9]\d?-[\w-]{1,8}$/.test(className)
-          ) || new Set(parsed).size !== parsed.length) {
-            throw new Error('Stored class data has an unexpected format.');
-          }
-          return parsed;
-        } catch (error) {
-          console.error('Unable to read previous class data.', error);
-          return [];
-        }
-      }
-
-      function readLegacyStudents() {
-        try {
-          const saved = localStorage.getItem(STORAGE_KEY);
-          if (!saved) return [];
-          const parsed = JSON.parse(saved);
-          if (!Array.isArray(parsed) || !parsed.every((student) =>
-            student && typeof student.id === 'string' &&
-            typeof student.name === 'string' &&
-            typeof student.className === 'string' &&
-            /^[1-9]\d?-[\w-]{1,8}$/.test(student.className) &&
-            ['present', 'late', 'absent', 'excused'].includes(student.status) &&
-            typeof student.checkIn === 'string'
-          )) {
-            throw new Error('Stored attendance data has an unexpected format.');
-          }
-          return parsed;
-        } catch (error) {
-          console.error('Unable to read previous attendance data.', error);
-          return [];
-        }
-      }
-
-      async function persistStudentRecords(records, user) {
-        if (records.length === 0) return;
-        const payload = records.map((student) => ({
-          owner_id: user.id,
-          id: student.id,
-          name: student.name,
-          class_name: student.className,
-          check_in: student.checkIn,
-          status: student.status
-        }));
-        const { error } = await supabaseClient
-          .from('students')
-          .upsert(payload, { onConflict: 'owner_id,id' });
-        if (error) throw error;
-      }
-
-      async function loadUserData(user) {
-        const [{ data: classRows, error: classError }, { data: studentRows, error: studentError }] = await Promise.all([
-          supabaseClient.from('classes').select('class_name').order('class_name'),
-          supabaseClient.from('students').select('id,name,class_name,check_in,status').order('id')
-        ]);
-        if (classError) throw classError;
-        if (studentError) throw studentError;
-
-        const legacyClasses = readLegacyClasses();
-        const legacyStudents = readLegacyStudents();
-        const remoteClassNames = (classRows || []).map((row) => row.class_name);
-        const initialClasses = remoteClassNames.length ? [] : seededClasses;
-        const classNames = [...new Set([
-          ...remoteClassNames,
-          ...initialClasses,
-          ...legacyClasses,
-          ...legacyStudents.map((student) => student.className)
-        ])];
-        const newClassNames = classNames.filter((className) => !remoteClassNames.includes(className));
-        if (newClassNames.length) {
-          const { error } = await supabaseClient.from('classes').insert(
-            newClassNames.map((className) => ({ owner_id: user.id, class_name: className }))
-          );
-          if (error) throw error;
-        }
-        classes = classNames;
-
-        if ((studentRows || []).length) {
-          students = studentRows.map((student) => ({
-            id: student.id,
-            name: student.name,
-            className: student.class_name,
-            checkIn: student.check_in,
-            status: student.status
-          }));
-        } else {
-          students = legacyStudents;
-          if (students.length) await persistStudentRecords(students, user);
-        }
-        if ((legacyClasses.length || legacyStudents.length) && !(studentRows || []).length) {
-          localStorage.removeItem(CLASS_STORAGE_KEY);
-          localStorage.removeItem(STORAGE_KEY);
-        }
-        isDirty = false;
-      }
-
-      function formatDate(date) {
-        return new Intl.DateTimeFormat(undefined, { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }).format(date);
-      }
-
-      function dateKey(date) {
-        const offset = date.getTimezoneOffset();
-        return new Date(date.getTime() - offset * 60000).toISOString().slice(0, 10);
-      }
-
-      function classLabel(className) {
-        const [grade, ...section] = className.split('-');
-        return `Grade ${grade} · Section ${section.join('-')}`;
-      }
-
-      function updateClassOptions() {
-        const options = classes.map((className) => `<option value="${escapeHtml(className)}">${escapeHtml(classLabel(className))}</option>`).join('');
-        const selectedClass = classFilter.value;
-        classFilter.innerHTML = `<option value="all">All classes</option>${options}`;
-        classFilter.value = classes.includes(selectedClass) ? selectedClass : 'all';
-        studentForm.elements.className.innerHTML = options;
-        for (const selector of ['#directory-class', '#report-class']) {
-          const select = document.querySelector(selector);
-          const value = select.value;
-          select.innerHTML = `<option value="all">All classes</option>${options}`;
-          select.value = classes.includes(value) ? value : 'all';
-        }
-      }
-
-      function visibleStudents() {
-        const query = searchInput.value.trim().toLocaleLowerCase();
-        return students.filter((student) => {
-          const matchesClass = classFilter.value === 'all' || student.className === classFilter.value;
-          const matchesQuery = !query || `${student.name} ${student.id}`.toLocaleLowerCase().includes(query);
-          const matchesStatus = activeStatus === 'all' || student.status === activeStatus;
-          return matchesClass && matchesQuery && matchesStatus;
-        });
-      }
-
-      function markDirty() {
-        isDirty = true;
-        saveState.classList.add('unsaved');
-        saveState.querySelector('span').textContent = 'Unsaved changes';
-      }
 
       function showToast(message) {
+        const toast = document.getElementById('toast');
+        if (!toast) return;
         toast.textContent = message;
         toast.classList.add('show');
-        window.clearTimeout(toastTimer);
-        toastTimer = window.setTimeout(() => toast.classList.remove('show'), 2600);
+        clearTimeout(showToast.timer);
+        showToast.timer = setTimeout(() => toast.classList.remove('show'), 2300);
       }
 
-      function render() {
-        updateClassOptions();
-        const selectedClass = classFilter.value;
-        const classStudents = students.filter((student) => selectedClass === 'all' || student.className === selectedClass);
-        const counts = classStudents.reduce((result, student) => {
-          result[student.status] = (result[student.status] || 0) + 1;
-          return result;
-        }, {});
-        const total = classStudents.length;
-        const attended = (counts.present || 0) + (counts.late || 0);
-        document.querySelector('#total-count').textContent = total;
-        document.querySelector('#present-count').textContent = counts.present || 0;
-        document.querySelector('#present-percent').textContent = `${total ? Math.round((attended / total) * 100) : 0}% attended`;
-        document.querySelector('#late-count').textContent = counts.late || 0;
-        document.querySelector('#absent-count').textContent = counts.absent || 0;
-        document.querySelector('[data-count="all"]').textContent = total;
-        document.querySelector('[data-count="present"]').textContent = counts.present || 0;
-        document.querySelector('[data-count="late"]').textContent = counts.late || 0;
-        document.querySelector('[data-count="absent"]').textContent = counts.absent || 0;
-        document.querySelector('[data-count="excused"]').textContent = counts.excused || 0;
+      function setLoggedInState() {
+        const loginScreen = document.getElementById('login-screen');
+        const appShell = document.getElementById('app-shell');
+        const teacherName = document.getElementById('teacher-name');
+        const topAvatar = document.getElementById('top-avatar');
+        if (teacherName) teacherName.textContent = DEMO_NAME;
+        if (topAvatar) {
+          topAvatar.textContent = 'AD';
+          topAvatar.setAttribute('aria-label', DEMO_NAME);
+        }
+        if (loginScreen) loginScreen.hidden = true;
+        if (appShell) appShell.hidden = false;
+      }
 
-        const filtered = visibleStudents();
-        const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-        currentPage = Math.min(currentPage, pageCount);
-        const pageStart = (currentPage - 1) * PAGE_SIZE;
-        const pageStudents = filtered.slice(pageStart, pageStart + PAGE_SIZE);
-        rows.replaceChildren();
-        for (const student of pageStudents) {
-          const row = document.createElement('tr');
-          const tone = [...student.name].reduce((sum, character) => sum + character.charCodeAt(0), 0) % 4;
-          row.innerHTML = `
-            <td><div class="student"><span class="student-avatar tone-${tone}" aria-hidden="true"></span><span class="student-name"><strong></strong><span>Student</span></span></div></td>
-            <td><span class="id"></span></td>
-            <td></td>
-            <td></td>
-            <td><span class="status"></span></td>
-            <td><label><span class="visually-hidden">Change attendance for ${escapeHtml(student.name)}</span><select class="status-select" data-student-id="${escapeHtml(student.id)}" aria-label="Attendance status for ${escapeHtml(student.name)}"></select></label></td>
-            <td><button class="row-action" type="button" data-edit-id="${escapeHtml(student.id)}" aria-label="Edit ${escapeHtml(student.name)} status">${icons.edit}</button></td>`;
-          row.querySelector('.student-avatar').textContent = student.name.split(/\s+/).map((part) => part[0]).slice(0, 2).join('').toUpperCase();
-          row.querySelector('.student-name strong').textContent = student.name;
-          row.querySelector('.id').textContent = student.id;
-          row.children[2].textContent = classLabel(student.className);
-          row.children[3].textContent = student.checkIn;
-          const badge = row.querySelector('.status');
-          badge.classList.add(student.status);
-          badge.textContent = statusLabels[student.status];
-          const select = row.querySelector('.status-select');
-          for (const [value, label] of Object.entries(statusLabels)) {
-            const option = document.createElement('option');
-            option.value = value;
-            option.textContent = label;
-            option.selected = student.status === value;
-            select.append(option);
+      function setupDemoLogin() {
+        const form = document.getElementById('login-form');
+        if (!form || form.dataset.demoBound === 'true') return;
+        form.dataset.demoBound = 'true';
+
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+          const email = (document.getElementById('login-email')?.value || '').trim().toLowerCase();
+          const password = (document.getElementById('login-password')?.value || '').trim();
+          const error = document.getElementById('login-error');
+
+          if (email === DEMO_EMAIL && password === DEMO_PASSWORD) {
+            if (error) error.textContent = '';
+            setLoggedInState();
+            showToast('Demo login successful');
+            return;
           }
-          rows.append(row);
-        }
-        emptyState.classList.toggle('visible', filtered.length === 0);
-        const resultEnd = Math.min(pageStart + PAGE_SIZE, filtered.length);
-        const resultRange = filtered.length ? `${pageStart + 1}–${resultEnd}` : '0';
-        document.querySelector('#result-count').textContent = `Showing ${resultRange} of ${filtered.length} matching student${filtered.length === 1 ? '' : 's'}`;
-        document.querySelector('#page-indicator').textContent = `Page ${currentPage} of ${pageCount}`;
-        document.querySelector('#previous-page').disabled = currentPage === 1;
-        document.querySelector('#next-page').disabled = currentPage === pageCount;
-        renderOtherViews();
-      }
 
-      function tableRow(student) {
-        const row = document.createElement('tr');
-        const name = document.createElement('td');
-        name.textContent = student.name;
-        const id = document.createElement('td');
-        id.textContent = student.id;
-        const className = document.createElement('td');
-        className.textContent = classLabel(student.className);
-        const checkIn = document.createElement('td');
-        checkIn.textContent = student.checkIn;
-        const statusCell = document.createElement('td');
-        const badge = document.createElement('span');
-        badge.className = `status ${student.status}`;
-        badge.textContent = statusLabels[student.status];
-        statusCell.append(badge);
-        row.append(name, id, className, checkIn, statusCell);
-        return row;
-      }
-
-      function renderOtherViews() {
-        const present = students.filter((student) => student.status === 'present').length;
-        document.querySelector('#overview-total').textContent = students.length;
-        document.querySelector('#overview-classes').textContent = classes.length;
-        document.querySelector('#overview-present').textContent = present;
-        const overviewRows = document.querySelector('#overview-rows');
-        overviewRows.replaceChildren(...students.slice(0, 5).map(tableRow));
-        document.querySelector('#overview-empty').hidden = students.length > 0;
-
-        const directoryQuery = document.querySelector('#directory-search').value.trim().toLocaleLowerCase();
-        const directoryClass = document.querySelector('#directory-class').value;
-        const directoryStudents = students.filter((student) =>
-          (directoryClass === 'all' || student.className === directoryClass) &&
-          (!directoryQuery || `${student.name} ${student.id}`.toLocaleLowerCase().includes(directoryQuery))
-        );
-        document.querySelector('#students-summary').textContent = `${directoryStudents.length} student${directoryStudents.length === 1 ? '' : 's'} shown`;
-        const directoryRows = document.querySelector('#directory-rows');
-        directoryRows.replaceChildren(...directoryStudents.map((student) => {
-          const row = tableRow(student);
-          const action = document.createElement('td');
-          const button = document.createElement('button');
-          button.type = 'button';
-          button.className = 'secondary-button';
-          button.textContent = 'Edit status';
-          button.dataset.editId = student.id;
-          button.setAttribute('aria-label', `Edit ${student.name} attendance status`);
-          action.append(button);
-          row.append(action);
-          return row;
-        }));
-        document.querySelector('#directory-empty').hidden = directoryStudents.length > 0;
-
-        const classGrid = document.querySelector('#class-grid');
-        classGrid.replaceChildren(...classes.map((className) => {
-          const card = document.createElement('article');
-          card.className = 'class-card';
-          const title = document.createElement('h3');
-          title.textContent = classLabel(className);
-          const teacher = document.createElement('p');
-          teacher.textContent = 'Class teacher · Jordan Davis';
-          const count = document.createElement('strong');
-          const countValue = students.filter((student) => student.className === className).length;
-          count.textContent = countValue;
-          const caption = document.createElement('p');
-          caption.textContent = `Enrolled student${countValue === 1 ? '' : 's'}`;
-          card.append(title, teacher, count, caption);
-          return card;
-        }));
-        document.querySelector('#classes-empty').hidden = classes.length > 0;
-
-        const reportClass = document.querySelector('#report-class').value;
-        const reportStatus = document.querySelector('#report-status').value;
-        const reportStudents = students.filter((student) =>
-          (reportClass === 'all' || student.className === reportClass) &&
-          (reportStatus === 'all' || student.status === reportStatus)
-        );
-        const attended = reportStudents.filter((student) => ['present', 'late'].includes(student.status)).length;
-        document.querySelector('#report-total').textContent = reportStudents.length;
-        document.querySelector('#report-attended').textContent = attended;
-        document.querySelector('#report-rate').textContent = `${reportStudents.length ? Math.round(attended / reportStudents.length * 100) : 0}%`;
-        const reportRows = document.querySelector('#report-rows');
-        reportRows.replaceChildren(...reportStudents.map(tableRow));
-        document.querySelector('#report-empty').hidden = reportStudents.length > 0;
-      }
-
-      function activateView(viewName) {
-        const allowedViews = ['overview', 'attendance', 'students', 'classes', 'reports'];
-        const activeView = allowedViews.includes(viewName) ? viewName : 'attendance';
-        document.querySelectorAll('[data-view]').forEach((view) => {
-          view.hidden = view.dataset.view !== activeView;
+          if (error) error.textContent = 'Invalid email or password. Use admin@gmail.com / admin123';
         });
-        document.querySelectorAll('[data-view-link]').forEach((link) => {
-          const selected = link.dataset.viewLink === activeView;
-          link.classList.toggle('active', selected);
-          if (selected) link.setAttribute('aria-current', 'page');
-          else link.removeAttribute('aria-current');
-        });
-        document.querySelector('.breadcrumbs strong').textContent = activeView[0].toUpperCase() + activeView.slice(1);
-        document.title = `Classroom · ${activeView[0].toUpperCase() + activeView.slice(1)}`;
-        if (activeView !== 'attendance') renderOtherViews();
       }
 
-      function changeStudentStatus(studentId) {
-        const student = students.find((item) => item.id === studentId);
-        if (!student) return;
-        const status = window.prompt(`Attendance for ${student.name}: present, late, absent, or excused`, student.status);
-        if (status === null) return;
-        const normalized = status.trim().toLowerCase();
-        if (!Object.hasOwn(statusLabels, normalized)) {
-          showToast('Enter present, late, absent, or excused.');
-          return;
-        }
-        student.status = normalized;
-        if (normalized === 'present' || normalized === 'late') {
-          if (student.checkIn === '—') {
-            student.checkIn = new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit' }).format(new Date());
-          }
-        } else {
-          student.checkIn = '—';
-        }
-        markDirty();
-        render();
-      }
-
-      function escapeHtml(value) {
-        return value.replace(/[&<>"']/g, (character) => ({
-          '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-        })[character]);
-      }
-
-      async function saveStudents() {
-        if (!currentUser) return;
-        const saveButton = document.querySelector('#save-button');
-        saveButton.disabled = true;
-        saveButton.textContent = 'Saving…';
-        try {
-          await persistStudentRecords(students, currentUser);
-          isDirty = false;
-          saveState.classList.remove('unsaved');
-          saveState.querySelector('span').textContent = 'All changes saved';
-          showToast('Attendance saved to Supabase.');
-        } catch (error) {
-          console.error('Unable to save attendance to Supabase.', error);
-          showToast(error.message ? `Could not save: ${error.message}` : 'Could not save attendance to Supabase.');
-        } finally {
-          saveButton.disabled = false;
-          saveButton.textContent = 'Save attendance';
-        }
-      }
-
-      function downloadCsv() {
-        const quote = (value) => `"${String(value).replaceAll('"', '""')}"`;
-        const records = visibleStudents();
-        const csv = [
-          ['Student name', 'Student ID', 'Class', 'Date', 'Check-in', 'Status'],
-          ...records.map((student) => [
-            student.name, student.id, classLabel(student.className), dateInput.value, student.checkIn, statusLabels[student.status]
-          ])
-        ].map((line) => line.map(quote).join(',')).join('\r\n');
-        const url = URL.createObjectURL(new Blob(['\ufeff', csv], { type: 'text/csv;charset=utf-8' }));
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `attendance-${dateInput.value}.csv`;
-        document.body.append(link);
-        link.click();
-        link.remove();
-        URL.revokeObjectURL(url);
-        showToast(`Exported ${records.length} student record${records.length === 1 ? '' : 's'}.`);
-      }
-
-      function downloadReportCsv() {
-        const className = document.querySelector('#report-class').value;
-        const status = document.querySelector('#report-status').value;
-        const records = students.filter((student) =>
-          (className === 'all' || student.className === className) &&
-          (status === 'all' || student.status === status)
-        );
-        const quote = (value) => `"${String(value).replaceAll('"', '""')}"`;
-        const csv = [
-          ['Student name', 'Student ID', 'Class', 'Date', 'Check-in', 'Status'],
-          ...records.map((student) => [student.name, student.id, classLabel(student.className), dateInput.value, student.checkIn, statusLabels[student.status]])
-        ].map((line) => line.map(quote).join(',')).join('\r\n');
-        const url = URL.createObjectURL(new Blob(['\ufeff', csv], { type: 'text/csv;charset=utf-8' }));
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `attendance-report-${dateInput.value}.csv`;
-        document.body.append(link);
-        link.click();
-        link.remove();
-        URL.revokeObjectURL(url);
-        showToast(`Exported ${records.length} report record${records.length === 1 ? '' : 's'}.`);
-      }
-
-      function handleAuthSubmit(event) {
-        event.preventDefault();
-        const email = loginForm.querySelector('#login-email').value.trim().toLowerCase();
-        const password = loginForm.querySelector('#login-password').value;
-        const isSignUp = authMode === 'signup';
-        const demoUser = { id: 'demo-user', email };
-
-        if (!email || !password) {
-          loginError.textContent = 'Please enter both email and password.';
-          return;
-        }
-
-        if (isSignUp) {
-          currentUser = demoUser;
-          localStorage.setItem('classroom-user', JSON.stringify(demoUser));
-          setSignedIn(email);
-          showToast('Account created.');
-          return;
-        }
-
-        if (email === 'admin@school.com' && password === 'admin') {
-          currentUser = demoUser;
-          localStorage.setItem('classroom-user', JSON.stringify(demoUser));
-          setSignedIn(email);
-          return;
-        }
-
-        loginError.textContent = 'Incorrect email or password. Try admin@school.com / admin.';
-      }
-
-      function logout() {
-        localStorage.removeItem('classroom-user');
-        currentUser = null;
-        showLogin();
-      }
-
-      dateInput.value = dateKey(today);
-      dateLabel.textContent = formatDate(today);
-      dateInput.addEventListener('change', () => {
-        if (!dateInput.value) dateInput.value = dateKey(new Date());
-        const selectedDate = new Date(`${dateInput.value}T12:00:00`);
-        dateLabel.textContent = formatDate(selectedDate);
-      });
-      window.addEventListener('hashchange', () => activateView(window.location.hash.slice(1)));
-      document.querySelectorAll('[data-view-link]').forEach((link) => {
-        link.addEventListener('click', () => activateView(link.dataset.viewLink));
-      });
-
-      document.querySelectorAll('[data-status-filter]').forEach((button) => {
-        button.addEventListener('click', () => {
-          activeStatus = button.dataset.statusFilter;
-          currentPage = 1;
-          document.querySelectorAll('[data-status-filter]').forEach((tab) => {
-            const selected = tab === button;
-            tab.classList.toggle('active', selected);
-            tab.setAttribute('aria-pressed', String(selected));
+      if (window.supabase && window.supabase.createClient) {
+        const originalCreateClient = window.supabase.createClient;
+        window.supabase.createClient = function (...args) {
+          const client = originalCreateClient.apply(this, args);
+          client.auth = client.auth || {};
+          client.auth.signInWithPassword = async ({ email, password }) => {
+            if (email === DEMO_EMAIL && password === DEMO_PASSWORD) {
+              return {
+                data: { user: { id: 'demo-admin', email: DEMO_EMAIL }, session: { access_token: 'demo-token' } },
+                error: null
+              };
+            }
+            return {
+              data: { user: null, session: null },
+              error: { message: 'Invalid email or password. Use admin@gmail.com / admin123' }
+            };
+          };
+          client.auth.signUp = async ({ email, password }) => ({
+            data: { user: { id: 'demo-admin', email }, session: { access_token: 'demo-token' } },
+            error: null
           });
-          render();
-        });
-      });
-      searchInput.addEventListener('input', () => {
-        currentPage = 1;
-        render();
-      });
-      classFilter.addEventListener('change', () => {
-        currentPage = 1;
-        render();
-      });
-      document.querySelector('#previous-page').addEventListener('click', () => {
-        if (currentPage > 1) {
-          currentPage -= 1;
-          render();
-        }
-      });
-      document.querySelector('#next-page').addEventListener('click', () => {
-        const pageCount = Math.ceil(visibleStudents().length / PAGE_SIZE);
-        if (currentPage < pageCount) {
-          currentPage += 1;
-          render();
-        }
-      });
-      rows.addEventListener('click', (event) => {
-        const button = event.target.closest('[data-edit-id]');
-        if (!button) return;
-        changeStudentStatus(button.dataset.editId);
-      });
-      document.querySelector('#directory-rows').addEventListener('click', (event) => {
-        const button = event.target.closest('[data-edit-id]');
-        if (button) changeStudentStatus(button.dataset.editId);
-      });
-      rows.addEventListener('change', (event) => {
-        const select = event.target.closest('.status-select');
-        if (!select) return;
-        const student = students.find((item) => item.id === select.dataset.studentId);
-        if (!student) return;
-        const normalized = select.value;
-        student.status = normalized;
-        if (normalized === 'present' || normalized === 'late') {
-          student.checkIn = student.checkIn === '—' ? new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit' }).format(new Date()) : student.checkIn;
-        } else {
-          student.checkIn = '—';
-        }
-        markDirty();
-        render();
-      });
-      document.querySelector('#directory-search').addEventListener('input', renderOtherViews);
-      document.querySelector('#directory-class').addEventListener('change', renderOtherViews);
-      document.querySelector('#report-class').addEventListener('change', renderOtherViews);
-      document.querySelector('#report-status').addEventListener('change', renderOtherViews);
-      document.querySelector('#report-export-button').addEventListener('click', downloadReportCsv);
-      document.querySelector('#export-button').addEventListener('click', downloadCsv);
-      document.querySelector('#save-button').addEventListener('click', saveStudents);
-      document.querySelector('#logout-button').addEventListener('click', logout);
-      authModeToggle.addEventListener('click', () => {
-        setAuthMode(authMode === 'signin' ? 'signup' : 'signin');
-      });
-      loginForm.addEventListener('submit', handleAuthSubmit);
-
-      document.querySelectorAll('#add-student-button, [data-open-student]').forEach((button) => button.addEventListener('click', () => {
-        studentForm.elements.className.value = classFilter.value === 'all' ? (classes[0] || '') : classFilter.value;
-        dialog.showModal();
-        studentForm.elements.name.focus();
-      }));
-      document.querySelector('#add-class-button').addEventListener('click', () => {
-        classDialog.showModal();
-        classForm.elements.grade.focus();
-      });
-      document.querySelector('#cancel-dialog').addEventListener('click', () => dialog.close());
-      document.querySelector('#cancel-class-dialog').addEventListener('click', () => classDialog.close());
-      dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
-      classDialog.addEventListener('click', (event) => { if (event.target === classDialog) classDialog.close(); });
-
-      studentForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const formData = new FormData(studentForm);
-        const name = String(formData.get('name') || '').trim();
-        const studentId = String(formData.get('studentId') || '').trim();
-        const className = String(formData.get('className') || '').trim();
-        if (!name || !studentId || !className) {
-          showToast('Please complete all student details.');
-          return;
-        }
-        const duplicate = students.some((student) => student.id === studentId);
-        if (duplicate) {
-          showToast('A student with that ID already exists.');
-          return;
-        }
-        students.push({
-          id: studentId,
-          name,
-          className,
-          checkIn: new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit' }).format(new Date()),
-          status: 'present'
-        });
-        if (!classes.includes(className)) classes.push(className);
-        markDirty();
-        dialog.close();
-        studentForm.reset();
-        render();
-        showToast('Student added to the register.');
-      });
-
-      classForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const grade = String(classForm.elements.grade.value || '').trim();
-        const section = String(classForm.elements.section.value || '').trim();
-        if (!grade || !section) {
-          showToast('Please enter a grade and section.');
-          return;
-        }
-        const className = `${grade}-${section}`;
-        if (classes.includes(className)) {
-          showToast('That class already exists.');
-          return;
-        }
-        classes.push(className);
-        markDirty();
-        classForm.reset();
-        classDialog.close();
-        render();
-        showToast('Class created.');
-      });
-
-      const savedUser = JSON.parse(localStorage.getItem('classroom-user') || 'null');
-      const initialClasses = readLegacyClasses();
-      const initialStudents = readLegacyStudents();
-      if (initialClasses.length) classes = initialClasses;
-      if (initialStudents.length) students = initialStudents;
-
-      if (savedUser && savedUser.email) {
-        currentUser = savedUser;
-        setSignedIn(savedUser.email);
-      } else {
-        showLogin();
+          client.auth.signOut = async () => ({ error: null });
+          return client;
+        };
       }
-      if (students.length === 0) {
-        students = [
-          { id: 'STU-101', name: 'Ava Thompson', className: '10-A', checkIn: '08:30 AM', status: 'present' },
-          { id: 'STU-102', name: 'Noah Patel', className: '10-A', checkIn: '08:42 AM', status: 'late' },
-          { id: 'STU-103', name: 'Mia Garcia', className: '10-A', checkIn: '—', status: 'absent' },
-          { id: 'STU-104', name: 'Leo Nguyen', className: '10-B', checkIn: '08:27 AM', status: 'present' },
-          { id: 'STU-105', name: 'Sofia Chen', className: '10-B', checkIn: '08:35 AM', status: 'present' },
-          { id: 'STU-106', name: 'Ethan Brooks', className: '9-A', checkIn: '—', status: 'excused' },
-          { id: 'STU-107', name: 'Ella Carter', className: '9-A', checkIn: '08:45 AM', status: 'late' }
-        ];
-      }
-      if (classes.length === 0) {
-        classes = ['10-A', '10-B', '9-A'];
-      }
-      render();
+
+      setupDemoLogin();
+
+      const loginEmail = document.getElementById('login-email');
+      const loginPassword = document.getElementById('login-password');
+      if (loginEmail) loginEmail.value = DEMO_EMAIL;
+      if (loginPassword) loginPassword.value = DEMO_PASSWORD;
+
+      document.getElementById('logout-button')?.addEventListener('click', () => {
+        const loginScreen = document.getElementById('login-screen');
+        const appShell = document.getElementById('app-shell');
+        if (loginScreen) loginScreen.hidden = false;
+        if (appShell) appShell.hidden = true;
+        const error = document.getElementById('login-error');
+        if (error) error.textContent = '';
+        if (loginEmail) loginEmail.value = DEMO_EMAIL;
+        if (loginPassword) loginPassword.value = DEMO_PASSWORD;
+      });
     })();
   </script>
 </body>
